@@ -12,7 +12,7 @@ rotaLogin
     const senha = requisicao.body.senha;
     if (usuario === 'Renato' && senha === '123'){
         requisicao.session.usuarioLogado = true;
-        resposta.redirect("/cadastroCliente.html");   
+        resposta.redirect("/aluno1-ppiadsead/cadastroCliente.html");   
     }
     else {
         resposta.send(" \
