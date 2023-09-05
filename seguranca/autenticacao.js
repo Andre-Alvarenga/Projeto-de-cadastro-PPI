@@ -3,6 +3,6 @@ export default function autenticar(requisicao, resposta, next){
         next();
     }
     else{
-        resposta.redirect('./login.html')
+        resposta.redirect('/aluno1-ppiadsead/login')
     }
 };
