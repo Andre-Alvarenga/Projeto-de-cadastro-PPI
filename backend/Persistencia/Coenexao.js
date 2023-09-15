@@ -1,10 +1,10 @@
 import mysql from 'mysql2/promise';
 
-export default function conectar(){
+export default async function conectar(){
 
 
     if (global.poolConexoes){
-        return global.poolConexoes.getConnection();
+        return await global.poolConexoes.getConnection();
     }
 
     global.poolConexoes = mysql.createPool({
@@ -23,6 +23,6 @@ export default function conectar(){
         
     });
 
-    return global.poolConexoes.getConnection();
+    return await global.poolConexoes.getConnection();
     
 }

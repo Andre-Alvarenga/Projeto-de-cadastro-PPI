@@ -5,7 +5,7 @@ export default class ClienteDAO{
 
     async gravar(cliente){
         if (cliente instanceof Cliente){
-            const conexao = conectar;
+            const conexao = await conectar;
             const sql = 'INSERT INTO cliente (nome, cpf, email, telefone, cep, cidade, estado, endereço, curso, periodo, mensagem) \ VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,)';
 
            const parametros = [cliente.nome, cliente.cpf, cliente.email, cliente.telefone, cliente.cep, cliente.cidade, cliente.estado, cliente.endereço, cliente.curso, cliente.periodo, cliente.mensagem];
@@ -17,7 +17,7 @@ export default class ClienteDAO{
 
     async atualizar(cliente){
         if (cliente instanceof Cliente){
-            const conexao = conectar();
+            const conexao = await conectar();
             const sql = 'UPDATE cliente SET nome = ?, email = ?, telefone = ?, cep = ?, cidade = ?, estado = ?, endereço = ?, curso = ?, periodo= ?,mensagem = ? WHERE cpf = ?' ;
 
             const parametros = [cliente.nome, cliente.email, cliente.telefone, cliente.cep, cliente.cidade, cliente.estado, cliente.endereço, cliente.curso, cliente.curso, cliente.periodo, cliente.mensagem, cliente.cpf];
@@ -29,7 +29,7 @@ export default class ClienteDAO{
 
     async excluir(cliente){
         if (cliente instanceof Cliente){
-            const conexao = conectar();
+            const conexao = await conectar();
             const sql = 'DELETE FROM cliente WHERE cpf = ?';
             const parametros = [cliente.cpf];
             await conexao.execute(sql, parametros);
