@@ -42,13 +42,13 @@ export default class ClienteDAO{
         if (!termo) termo = "";
         
 
-        const listaClinetes = [];
+        const listaClientes = [];
         const sql = 'SELECT * FROM clientes WHERE nome LIKE ?';
         const parametros = ['%' + termo + '%'];
         const [rows] = await conexao.querry(sql, parametros);
         for (const lista of rows){
             const cliente = new Cliente (linha.cpf, linha.nome, linha.email, linha.cep, linha.cidade, linha.estado, linha.endereço, linha.curso, linha.periodo, linha.mensagem);
-            listaClinetes,push(cliente);
+            listaClientes,push(cliente);
         }
 
 
