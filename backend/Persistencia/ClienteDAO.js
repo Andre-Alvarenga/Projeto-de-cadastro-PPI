@@ -1,4 +1,4 @@
-import Cliente from "../Modelo/Cliente.js" //dar uma olhada aqui dps
+import Cliente from "../Modelo/Cliente.js"
 import conectar from "./Coenexao.js"
 
 export default class ClienteDAO{
@@ -48,7 +48,7 @@ export default class ClienteDAO{
         const [rows] = await conexao.query(sql, parametros);
         for (const linha of rows){
             const cliente = new Cliente (linha.cpf, linha.nome, linha.email, linha.cep, linha.cidade, linha.estado, linha.endereço, linha.curso, linha.periodo, linha.mensagem);
-            listaClientes.push(cliente);
+            listaClientes.push(cliente.toJson());
         }
 
 
