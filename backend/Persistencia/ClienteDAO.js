@@ -45,8 +45,8 @@ export default class ClienteDAO{
         const listaClientes = [];
         const sql = 'SELECT * FROM clientes WHERE nome LIKE ?';
         const parametros = ['%' + termo + '%'];
-        const [rows] = await conexao.querry(sql, parametros);
-        for (const lista of rows){
+        const [rows] = await conexao.query(sql, parametros);
+        for (const linha of rows){
             const cliente = new Cliente (linha.cpf, linha.nome, linha.email, linha.cep, linha.cidade, linha.estado, linha.endereço, linha.curso, linha.periodo, linha.mensagem);
             listaClientes.push(cliente);
         }
