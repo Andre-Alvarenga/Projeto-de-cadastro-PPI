@@ -25,7 +25,7 @@ app.use(express.static('./publico'));
 app.use('/clientes', (requisicao, resposta)=>{
     const cliente = new Cliente();
     cliente.consultar('').then((listaClientes)=>{
-        resposta.json(listaClientes);
+         return resposta.json(listaClientes);
     })
 })
 
