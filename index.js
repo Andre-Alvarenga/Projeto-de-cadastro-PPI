@@ -26,7 +26,10 @@ app.use('/clientes', (requisicao, resposta)=>{
     const cliente = new Cliente();
     cliente.consultar('').then((listaClientes)=>{
         resposta.json(listaClientes);
-    })
+    }).catch((erro)=>{
+        console.log(erro);
+        return resposta.status(500).send(erro);
+    });
 })
 
 app.use('/login', rotaLogin);
