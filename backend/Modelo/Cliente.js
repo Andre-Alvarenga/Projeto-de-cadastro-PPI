@@ -97,8 +97,8 @@ export default class Cliente{
 
     toJson(){
         return {
+            cpf: this.#cpf ,
             nome: this.#nome,
-            cpf: this.#cpf,
             email: this.#email,
             telefone: this.#telefone,
             cep: this.#cep,

@@ -2,13 +2,14 @@ import express from 'express';
 import autenticar from './seguranca/autenticacao.js';
 import session from 'express-session';
 import rotaLogin from './rotas/rotaLogin.js';
-import Cliente from './backend/Modelo/Cliente.js';
+import rotaCliente from './backend/Rotas/rotaCliente.js';
 
 const host = '0.0.0.0';
 const porta = '3201';
 
 const app = express();
 
+app.use(express.json());
 app.use(session({
     secret:'Minh4ChAveS3crEt4',
     resave: true,
@@ -22,15 +23,7 @@ app.use(express.urlencoded({extended: false}));
 
 app.use(express.static('./publico'));
 
-app.use('/clientes', (requisicao, resposta)=>{
-    const cliente = new Cliente();
-    cliente.consultar('').then((listaClientes)=>{
-        resposta.json(listaClientes);
-    }).catch((erro)=>{
-        console.log(erro);
-        return resposta.status(500).send(erro);
-    });
-})
+app.use('/clientes', rotaCliente);
 
 app.use('/login', rotaLogin);
 
