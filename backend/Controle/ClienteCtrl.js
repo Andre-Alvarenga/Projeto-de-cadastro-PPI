@@ -18,7 +18,7 @@ export default class ClienteCtrl{
             const periodo = dados.periodo;
             const mensagem = dados.mensagem;
             if (cpf && nome && email && telefone && cep && cidade && estado && endereço && curso && periodo && mensagem){
-                const cliente = new Cliente(cpf, nome, email, telefone, cep, cidade, estado, endereço, curso, periodo, mensagem);
+                const cliente = new Cliente(nome, cpf, email, telefone, cep, cidade, estado, endereço, curso, periodo, mensagem);
                 cliente.gravar().then(()=>{
                     resposta.json({
                         status:true,
@@ -48,7 +48,7 @@ export default class ClienteCtrl{
     }
     atualizar(requisicao, resposta){
         resposta.type('application/json');
-        if (requisicao.method === 'PUT ' && requisicao.is('application/json')){
+        if (requisicao.method === 'PUT' && requisicao.is('application/json')){
             const dados = requisicao.body;
             const cpf = dados.cpf;
             const nome = dados.nome;
@@ -62,7 +62,7 @@ export default class ClienteCtrl{
             const periodo = dados.periodo;
             const mensagem = dados.mensagem;
             if (cpf && nome && email && telefone && cep && cidade && estado && endereço && curso && periodo && mensagem){
-                const cliente = new Cliente(cpf, nome, email, telefone, cep, cidade, estado, endereço, curso, periodo, mensagem);
+                const cliente = new Cliente(nome, cpf, email, telefone, cep, cidade, estado, endereço, curso, periodo, mensagem);
                 cliente.atualizar().then(()=>{
                     resposta.json({
                         status:true,
@@ -92,11 +92,13 @@ export default class ClienteCtrl{
     }
     excluir(requisicao, resposta){
         resposta.type('application/json');
-        if (requesicao.method === "DELETE" && requisicao.is('application/json')){
+        if (requisicao.method === "DELETE" && requisicao.is('application/json')){
             const dados = requisicao.body;
             const cpf = dados.cpf;
             if (cpf){
-                const cliente = new Cliente(cpf);
+                console.log("antes do server explodir");
+                const cliente = new Cliente(undefined, cpf);
+                console.log("depois", cliente.toJson());
                 cliente.excluir().then(()=>{
                     resposta.json({
                         status:true,
