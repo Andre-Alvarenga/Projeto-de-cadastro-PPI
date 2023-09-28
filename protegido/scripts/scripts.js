@@ -1,7 +1,22 @@
 
 window.onload = () =>{
-        mostrarClientes([]);
+        obterClientes();
 }
+
+function obterClientes(){
+    fetch('https://129.146.68.51/aluno1-ppiadsead/clientes', {method:'GET'})
+    .then((resposta)=>{
+        if (resposta.status === 200){
+            return resposta.json();
+        }
+        else{
+            return [];
+        }
+    })
+    .then((listaClientes)=>{
+        mostrarClientes(listaClientes);
+    })
+};
 
 function mostrarClientes(listaClientes){
     let elementoDivTabela = document.getElementById('espacoTabela');
