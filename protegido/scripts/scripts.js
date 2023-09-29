@@ -22,7 +22,7 @@ function mostrarClientes(listaClientes){
     let elementoDivTabela = document.getElementById('espacoTabela');
     elementoDivTabela.innerHTML = '';
     if (listaClientes.lenght > 0){;
-        let tabela = documento.createElement('table');
+        let tabela = document.createElement('table');
         let cabecalhoTabela = document.createElement('thead');
         let corpoTabela = document.createElement('tbody');
 
