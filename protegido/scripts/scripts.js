@@ -99,6 +99,7 @@ function cadastrarCliente(cliente){
     }).then((respostaBackEnd)=>{
         if(respostaBackEnd.status){
             mostrarMensagem(respostaBackEnd.mensagem,'success');
+            obterClientes();
         }
         else{
             mostrarMensagem(respostaBackEnd.mensagem,'danger');
