@@ -1,3 +1,50 @@
+const botaoEnviar = document.getElementsById('enviar');
+const formulario = document.getElementById('cadastroForm') 
+
+function obterClientesFormulario(){
+    return {
+        nome:document.getElementById('nome'),
+        cpf:document.getElementById('cpf'),
+        email:document.getElementById('email'),
+        telefone:document.getElementById('telefone'),
+        cep:document.getElementById('cep'),
+        cidade:document.getElementById('cidade'),
+        estado:document.getElementById('estado'),
+        endereço:document.getElementById('endereco'),
+        curso:document.getElementById('curso'),
+        periodo:document.getElementById('periodo'),
+        mensagem:document.getElementById('mensagem')
+
+    }
+}
+
+function limparFormulario(){
+    document.getElementById('nome').value = '';
+    document.getElementById('cpf').value = '';
+    document.getElementById('email').value = '';
+    document.getElementById('telefone').value = '';
+    document.getElementById('cep').value = '';
+    document.getElementById('cidade').value = '';
+    document.getElementById('estado').value = 'Escolha o estado';
+    document.getElementById('endereco').value = '';
+    document.getElementById('curso').value = '';
+    document.getElementById('periodo').value = '';
+    document.getElementById('mensagem').value = ''
+
+};
+
+botaoEnviar.onclick=()=>{
+    if(formulario.checkValidity()){
+        const cliente = obterClientesFormulario();
+        cadastrarCliente(cliente);
+        limparFormulario();
+    }
+    formulario.classlist.add('was-validated');
+    //e.preventDefault();
+    //e.stopPropagation();
+}
+
+
 
 window.onload = () =>{
         obterClientes();

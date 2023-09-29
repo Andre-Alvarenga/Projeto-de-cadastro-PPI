@@ -17,30 +17,36 @@
       <div class="mb-3">
         <label for="nome" class="form-label">Nome:</label>
         <input type="text" class="form-control" id="nome" name="nome" value required>
+        <div class="invalid-feedback">Por favor,informe o nome do cliente</div>
       </div>
       <div class="mb-3">
         <label for="cpf" class="form-label">CPF:</label>
         <input type="text" class="form-control" id="cpf" name="cpf" value required>
         <small id="cpfError" class="form-text error-message"></small>
+        <div class="invalid-feedback">Por favor,informe o CPF do cliente</div>
       </div>
       <div class="mb-3">
         <label for="email" class="form-label">Email:</label>
         <input type="email" class="form-control" id="email" name="email" value required>
         <small id="emailError" class="form-text error-message"></small>
+        <div class="invalid-feedback">Por favor,informe o email do cliente</div>
       </div>
       <div class="mb-3">
         <label for="telefone" class="form-label">Telefone:</label>
         <input type="tel" class="form-control" id="telefone" name="telefone" value required>
         <small id="telefoneError" class="form-text error-message"></small>
+        <div class="invalid-feedback">Por favor,informe o telefone do cliente</div>
       </div>
       <div class="mb-3">
         <label for="cep" class="form-label">CEP:</label>
         <input type="text" class="form-control" id="cep" name="cep" value required>
         <small id="cepError" class="form-text error-message"></small>
+        <div class="invalid-feedback">Por favor,informe o CEP do cliente</div>
       </div>
       <div class="mb-3">
         <label for="cidade" class="form-label">Cidade:</label>
         <input type="text" class="form-control" id="cidade" name="cidade" value required>
+        <div class="invalid-feedback">Por favor,informe a cidade do cliente</div>
       </div>
       <div class="mb-3">
         <label for="estado" class="form-label">Estado:</label>
@@ -74,10 +80,12 @@
           <option value="SE">Sergipe</option>
           <option value="TO">Tocantins</option>
         </select>
+        <div class="invalid-feedback">Por favor,informe o estado do cliente</div>
       </div>
       <div class="mb-3">
         <label for="endereco" class="form-label">Endereço:</label>
         <input type="text" class="form-control" id="endereco" name="endereco" value required>
+        <div class="invalid-feedback">Por favor,informe o endereço do cliente</div>
       </div>
       <div class="mb-3">
         <label for="curso" class="form-label">Curso:</label>
@@ -87,25 +95,27 @@
           <option value="Administração">Administração</option>
           <option value="Ciências da Computação">Ciências da Computação</option>
         </select>
+        <div class="invalid-feedback">Por favor,informe o curso do cliente</div>
       </div>
       <div class="mb-3">
         <label for="periodo" class="form-label">Preferência de período:</label><br>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="periodo" id="dia" value="Dia"value required>
+        <div class="form-check form-check-inline" id="periodo">
+          <input class="form-check-input" type="radio" name="periodo" id="periodo" value="Dia"value required>
           <label class="form-check-label" for="dia">Dia</label>
         </div>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="periodo" id="noite" value="Noite">
+          <input class="form-check-input" type="radio" name="periodo" id="periodo" value="Noite">
           <label class="form-check-label" for="noite">Noite</label>
         </div>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="periodo" id="integral" value="Integral">
+          <input class="form-check-input" type="radio" name="periodo" id="periodo" value="Integral">
           <label class="form-check-label" for="integral">Integral</label>
         </div>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="periodo" id="ead" value="EAD">
+          <input class="form-check-input" type="radio" name="periodo" id="periodo" value="EAD">
           <label class="form-check-label" for="ead">EAD</label>
         </div>
+        <div class="invalid-feedback">Por favor,informe a Preferência de periodo do cliente</div>
       </div>
       <div class="mb-3 form-check">
         <input type="checkbox" class="form-check-input" id="confirmacaoDados" required>
@@ -120,7 +130,7 @@
         <textarea class="form-control" id="mensagem" rows="3"></textarea>
       </div>
       <div class="mb-3">
-        <button type="submit" value="Enviar" class="btn btn-primary">Enviar</button>
+        <button type="button" value="Enviar" class="btn btn-primary" id="enviar">Enviar</button>
       </div>
     </form>
   </div>
