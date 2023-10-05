@@ -126,8 +126,7 @@ function mostrarClientes(listaClientes){
                                         <th>email</th>
                                         <th>telefone</th>
                                         <th>cep</th>
-                                        <th>cidade</th>
-                                        <th>estado</th>
+                                        <th>cidade|UF</th>
                                         <th>endereço</th>
                                         <th>curso</th>
                                         <th>periodo</th>
