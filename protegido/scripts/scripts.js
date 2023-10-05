@@ -80,35 +80,35 @@ function obterClientes(){
     })
 };
 
-function cadastrarCliente(cliente){
-    fetch('https://129.146.68.51/aluno1-ppiadsead/clientes',{
-        method:'POST',
-        headers:{
-            'Content-Type':'application/json'
+function cadastrarCliente(cliente) {
+    fetch('https://129.146.68.51/aluno1-ppiadsead/clientes', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
         },
-        body:JSON.stringify(cliente)
-    }).then((resposta)=>{
-        if (resposta.status === 200){
-            return resposta.json();
+        body: JSON.stringify(cliente)
+    })
+    .then(async (resposta) => {
+        const respostaBackEnd = await resposta.json().catch(error => {
+            throw new Error('Erro ao analisar a resposta JSON');
+        });
+
+        if (resposta.status === 200) {
+            if (respostaBackEnd.status) {
+                mostrarMensagem(respostaBackEnd.mensagem, 'success');
+                obterClientes();
+            } else {
+                mostrarMensagem(respostaBackEnd.mensagem, 'danger');
+            }
+        } else {
+            mostrarMensagem(`Erro no servidor: ${resposta.status}`, 'danger');
         }
-        else{
-            return {
-                status:false,
-                mensagem:'Não foi possivel enviar o cliente para o backend.'
-            };
-        }
-    }).then((respostaBackEnd)=>{
-        if(respostaBackEnd.status){
-            mostrarMensagem(respostaBackEnd.mensagem,'success');
-            obterClientes();
-        }
-        else{
-            mostrarMensagem(respostaBackEnd.mensagem,'danger');
-        }
-    }).catch((erro)=>{
-        mostrarMensagem(erro.message,'danger');
+    })
+    .catch((erro) => {
+        mostrarMensagem(erro.message, 'danger');
     });
 }
+
 
 
 function mostrarClientes(listaClientes){
