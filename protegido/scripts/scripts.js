@@ -1,4 +1,4 @@
-const botaoEnviar = document.getElementsById('enviar');
+const botaoEnviar = document.getElementById('enviar');
 const formulario = document.getElementById('cadastroForm') 
 
 function obterClientesFormulario(){
@@ -29,7 +29,8 @@ function limparFormulario(){
     document.getElementById('endereco').value = '';
     document.getElementById('curso').value = '';
     document.getElementById('periodo').value = '';
-    document.getElementById('mensagem').value = ''
+    document.getElementById('mensagem').value = '';
+    formulario.classList.remove('was-validated');
 
 };
 
@@ -62,7 +63,7 @@ function mostrarMensagem(mensagem,tipo){
 }
 
 function obterClientes(){
-    fetch('https://129.146.68.51/aluno1-ppiadsead/clientes', {method:'GET'})
+    fetch('https://129.146.68.51/aluno1-ppiadsead/clientes', { method: 'GET' })
     .then((resposta)=>{
         if (resposta.status === 200){
             return resposta.json();
@@ -113,7 +114,7 @@ function cadastrarCliente(cliente){
 function mostrarClientes(listaClientes){
     let elementoDivTabela = document.getElementById("espacoTabela");
     elementoDivTabela.innerHTML = '';
-    if (listaClientes.lenght > 0){;
+    if (listaClientes.length > 0){
         let tabela = document.createElement('table'); 
         tabela.className ='table table-striped table-hover'
         let cabecalhoTabela = document.createElement('thead');
