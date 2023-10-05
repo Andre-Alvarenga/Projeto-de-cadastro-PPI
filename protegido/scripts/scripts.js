@@ -89,7 +89,7 @@ function cadastrarCliente(cliente){
         body:JSON.stringify(cliente)
     }).then((resposta)=>{
         if (resposta.status === 200){
-            return json();
+            return resposta.json();
         }
         else{
             return {
@@ -120,19 +120,20 @@ function mostrarClientes(listaClientes){
         let cabecalhoTabela = document.createElement('thead');
         let corpoTabela = document.createElement('tbody');
 
-        cabecalhoTabela.innerHTML = `<th> 
-                                        <td>nome</td>
-                                        <td>CPF</td>
-                                        <td>email</td>
-                                        <td>telefone</td>
-                                        <td>cep</td>
-                                        <td>cidade</td>
-                                        <td>estado</td>
-                                        <td>endereço</td>
-                                        <td>curso</td>
-                                        <td>periodo</td>
-                                        <td>mensagem</td>
-                                    </th>`;
+        cabecalhoTabela.innerHTML = `<tr>
+                                        <th>nome</th>
+                                        <th>CPF</th>
+                                        <th>email</th>
+                                        <th>telefone</th>
+                                        <th>cep</th>
+                                        <th>cidade</th>
+                                        <th>estado</th>
+                                        <th>endereço</th>
+                                        <th>curso</th>
+                                        <th>periodo</th>
+                                        <th>mensagem</th>
+                                    </tr>`;
+
 
        tabela.appendChild(cabecalhoTabela);
 
