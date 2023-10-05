@@ -5,7 +5,7 @@ CREATE TABLE clientes (
     telefone varchar(16) not null,
     cep varchar(12) not null,
     cidade varchar(100) not null,
-    estado varchar(2) not null,
+    estado varchar(25) not null,
     endereço varchar(100) not null,
     curso varchar (50) not null,
     periodo varchar(30) not null,
