@@ -34,16 +34,17 @@ function limparFormulario(){
 
 };
 
-botaoEnviar.onclick=()=>{
-    if(formulario.checkValidity()){
+botaoEnviar.onclick = (e) => {
+    if (formulario.checkValidity()) {
         const cliente = obterClientesFormulario();
         cadastrarCliente(cliente);
         limparFormulario();
     }
-    formulario.classlist.add('was-validated');
-    //e.preventDefault();
-    //e.stopPropagation();
+    formulario.classList.add('was-validated');
+    e.preventDefault(); // Uncomment this line to prevent default form submission
+    e.stopPropagation(); // Uncomment this line to prevent default form submission
 }
+
 
 
 
